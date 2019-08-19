@@ -42,5 +42,23 @@ end
 
 puts "fake beasts created 🐲"
 
-      created_at: Date.parse('20191012'),
-      updated_at: Date.parse('20191112'),
+Booking.destroy_all
+
+puts "Creating fake bookings..."
+
+beasts = Beast.all
+user_ids = users.map do |user|
+    user.id
+  end
+
+beasts.each do |beast|
+  Booking.create!(
+  start_date: Date.parse('20191012'),
+  end_date: Date.parse('20191112'),
+  status: true,
+  beast_id: beast.id,
+  user_id: user_ids.sample
+  )
+end
+
+puts "Created fake bookings... 🐿"
