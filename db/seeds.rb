@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+species = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
+
+Beast.destroy_all
+
+Puts "Creating fake beasts..."
+
+User.each do |user|
+  (1..2).sample.times do
+    Beast.create!(
+      name: Faker::Movies::HarryPotter.character,
+      description: Faker::Movies::HarryPotter.house,
+      address: Faker::Movies::HarryPotter.location,
+      dangerosity: (1..5).sample,
+      price: (1..50).sample,
+      species: species.sample,
+      created_at: Date.parse(20191012),
+      updated_at: Date.parse(20191112),
+      photo: File.open(File.join(Rails.root, "app/assets/images/harry.jpg"))
+  )
