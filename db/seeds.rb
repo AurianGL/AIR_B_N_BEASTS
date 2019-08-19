@@ -34,8 +34,6 @@ users.each do |user|
       dangerosity: rand(1..5),
       price: rand(1..50),
       species: species.sample,
-      created_at: Date.parse('20191012'),
-      updated_at: Date.parse('20191112'),
       photo: File.open(File.join(Rails.root, "app/assets/images/harry.jpg")),
       user_id: user.id
   )
@@ -44,3 +42,5 @@ end
 
 puts "fake beasts created 🐲"
 
+      created_at: Date.parse('20191012'),
+      updated_at: Date.parse('20191112'),
