@@ -17,6 +17,7 @@ end
 puts "10 fake users created ⭐️"
 
 species = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
+users = User.all
 
 puts "destroy beasts"
 
@@ -24,19 +25,22 @@ Beast.destroy_all
 
 puts "Creating fake beasts..."
 
-User.each do |user|
-  (1..2).sample.times do
+users.each do |user|
+  rand(1..2).times do
     Beast.create!(
       name: Faker::Movies::HarryPotter.character,
       description: Faker::Movies::HarryPotter.house,
       address: Faker::Movies::HarryPotter.location,
-      dangerosity: (1..5).sample,
-      price: (1..50).sample,
+      dangerosity: rand(1..5),
+      price: rand(1..50),
       species: species.sample,
-      created_at: Date.parse(20191012),
-      updated_at: Date.parse(20191112),
-      photo: File.open(File.join(Rails.root, "app/assets/images/harry.jpg"))
+      created_at: Date.parse('20191012'),
+      updated_at: Date.parse('20191112'),
+      photo: File.open(File.join(Rails.root, "app/assets/images/harry.jpg")),
+      user_id: user.id
   )
+  end
+end
 
 puts "fake beasts created 🐲"
 
