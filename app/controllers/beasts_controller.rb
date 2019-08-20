@@ -6,6 +6,7 @@ class BeastsController < ApplicationController
 
   def show
     @beast = Beast.find(params[:id])
+  end
 
   def create
     @beast = Beast.new(beast_params)
@@ -24,6 +25,5 @@ class BeastsController < ApplicationController
 
   def beast_params
     params.require(:beast).permit(:name, :description, :address, :dangerosity, :price, :species)
-
   end
 end
