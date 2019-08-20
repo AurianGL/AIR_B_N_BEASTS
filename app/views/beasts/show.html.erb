@@ -1,50 +1,48 @@
 <div class="container d-flex flex-wrap col-10">
 
-      <div class="container-fluid col-4">
-        <div class="beast-card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path @beast.photo %>')">
-          <div class="mb-3" >
-            <div class="card-header">
-              <h4><%= @beast.name %></h4>
-              <p>
-                <i class="fas fa-dragon"></i>
-                <%= @beast.species %>
-              </p>
-            </div>
-            <div class="card-body">
-              <p><%= @beast.description %></p>
-              <p>
-                <i class="fas fa-pound-sign"></i>
-                <%= @beast.price %>/day
-              </p>
-              <p>
-                <i class="fas fa-radiation-alt"></i>
-                <%= @beast.dangerosity %>/5
-              </p>
-              <p>
-                <i class="fas fa-map-pin"></i>
-                <%= @beast.address %>
-              </p>
-              <p>
-                <i class="far fa-calendar-plus"></i>
-                 Availabilities
-                   <h2>Flatpickr Demo</h2>
-
-                  <%= simple_form_for :search, method: "get" do |f| %>
-                  <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                  <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                  <%= f.button :submit, "Go", class: "btn btn-primary" %>
-                <% end %>
-              </p>
-              <p>
-                Owner
-              </p>
-            </div>
-              <div class="align-center">
-                <%= link_to 'Book', beasts_path, class: "btn" %>
-              </div>
-          </div>
+  <div class="container-fluid col-4">
+    <div class="beast-card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path @beast.photo %>')">
+      <div class="mb-3" >
+        <div class="card-header">
+          <h4><%= @beast.name %></h4>
+          <p>
+            <i class="fas fa-dragon"></i>
+            <%= @beast.species %>
+          </p>
         </div>
-          <div class="mt-15">
-            <h2>Reviews</h2>
+          <div class="card-body">
+            <p><%= @beast.description %></p>
+            <p>
+              <i class="fas fa-pound-sign"></i>
+              <%= @beast.price %>/day
+            </p>
+            <p>
+              <i class="fas fa-radiation-alt"></i>
+              <%= @beast.dangerosity %>/5
+            </p>
+            <p>
+              <i class="fas fa-map-pin"></i>
+              <%= @beast.address %>
+            </p>
+            <i class="far fa-calendar-plus"></i>
+            <p>Availabilities</p>
+            <h2>Flatpickr Demo</h2>
+              <%= simple_form_for :search, method: "get" do |f| %>
+                <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.button :submit, "Go", class: "btn btn-primary" %>
+              <% end %>
+            <p>
+              Owner
+            </p>
           </div>
+        <div class="align-center">
+          <%= link_to 'Book', new_beast_booking_path(@beast), class: "btn" %>
+        </div>
       </div>
+    </div>
+    <div class="mt-15">
+      <h2>Reviews</h2>
+    </div>
+  </div>
+</div>
