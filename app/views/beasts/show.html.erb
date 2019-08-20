@@ -1,0 +1,34 @@
+  <div class="container mt-5">
+
+    <div class="beast-card">
+
+      <div class="beast-card-top">
+        <h2><%= @beast.name %></h2>
+        <p><%= @beast.photo %></p>
+        <p><%= @beast.species %></p>
+      </div>
+
+      <div class="beast-card-description">
+        <h3><%= @beast.description %></h3>
+      </div>
+
+      <div class="beast-card-numericals">
+        <p><%= @beast.price %></p>
+        <p><%= @beast.dangerosity %></p>
+        <p><%= @beast.pg_rating %></p>
+      </div>
+
+      <div class="beast-card-availability">
+        <p><%= @beast.start_date %></p>
+        <p><%= @beast.end_date %></p>
+      </div>
+
+    </div>
+
+    <div class="beast-reviews">
+      <p><%= @beast.reviews %></p>
+    </div>
+
+  </div>
+
+
