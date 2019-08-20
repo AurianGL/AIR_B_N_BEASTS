@@ -1,2 +1,25 @@
 // Import page-specific CSS files here.
 @import "home";
+
+h4 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.btn {
+  color: white;
+  border: white solid 1px;
+  border-radius: 8px;
+  background-color: $dark-grey;
+  margin-top: 12px;
+}
+
+.btn:hover {
+  color: $dark-grey;
+  border: white solid 1px;
+  border-radius: 8px;
+  background-color: white;
+}

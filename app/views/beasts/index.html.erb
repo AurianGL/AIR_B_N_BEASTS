@@ -1,14 +1,35 @@
 <div class="container d-flex flex-wrap col-10">
 
   <% @beasts.each do |beast| %>
-      <div class="container-fluid col-4   ">
+      <div class="container-fluid col-4">
         <div class="beast-card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path beast.photo %>')">
           <div class="mb-3" >
-            <div > beast </div>
+            <div class="card-header">
+              <h4><%= beast.name %></h4>
+              <p>
+                <i class="fas fa-dragon"></i>
+                <%= beast.species %>
+              </p>
+            </div>
+            <div class="card-body">
+              <p>
+                <i class="fas fa-pound-sign"></i>
+                <%= beast.price %>/day
+              </p>
+              <p>
+                <i class="fas fa-radiation-alt"></i>
+                <%= beast.dangerosity %>/5
+              </p>
+              <p>
+                <i class="fas fa-map-pin"></i>
+                <%= beast.address %>
+              </p>
+            </div>
+            <div class="align-center">
+              <%= link_to 'More details', beast_path(beast), class: "btn" %>
+            </div>
           </div>
         </div>
       </div>
-
-
   <% end %>
 </div>

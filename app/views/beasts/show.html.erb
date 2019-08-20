@@ -1,34 +1,44 @@
-  <div class="container mt-5">
+<div class="container d-flex flex-wrap col-10">
 
-    <div class="beast-card">
-
-      <div class="beast-card-top">
-        <h2><%= @beast.name %></h2>
-        <p><%= @beast.photo %></p>
-        <p><%= @beast.species %></p>
+      <div class="container-fluid col-4">
+        <div class="beast-card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path @beast.photo %>')">
+          <div class="mb-3" >
+            <div class="card-header">
+              <h4><%= @beast.name %></h4>
+              <p>
+                <i class="fas fa-dragon"></i>
+                <%= @beast.species %>
+              </p>
+            </div>
+            <div class="card-body">
+              <p><%= @beast.description %></p>
+              <p>
+                <i class="fas fa-pound-sign"></i>
+                <%= @beast.price %>/day
+              </p>
+              <p>
+                <i class="fas fa-radiation-alt"></i>
+                <%= @beast.dangerosity %>/5
+              </p>
+              <p>
+                <i class="fas fa-map-pin"></i>
+                <%= @beast.address %>
+              </p>
+              <p>
+                <i class="far fa-calendar-plus"></i>
+                 Availabilities
+              </p>
+              <p>
+                Owner
+              </p>
+            </div>
+              <div class="align-center">
+                <%= link_to 'Book', beasts_path, class: "btn" %>
+              </div>
+          </div>
+        </div>
+          <div class="mt-15">
+            <h2>Reviews</h2>
+          </div>
       </div>
-
-      <div class="beast-card-description">
-        <h3><%= @beast.description %></h3>
-      </div>
-
-      <div class="beast-card-numericals">
-        <p><%= @beast.price %></p>
-        <p><%= @beast.dangerosity %></p>
-        <p><%= @beast.pg_rating %></p>
-      </div>
-
-      <div class="beast-card-availability">
-        <p><%= @beast.start_date %></p>
-        <p><%= @beast.end_date %></p>
-      </div>
-
-    </div>
-
-    <div class="beast-reviews">
-      <p><%= @beast.reviews %></p>
-    </div>
-
-  </div>
-
-
+</div>
