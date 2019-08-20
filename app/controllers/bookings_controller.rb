@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_beast, only: [:new, :show, :update, :edit, :destroy]
+  before_action :set_beast, only: [:new, :show, :update, :edit, :destroy, :create]
 
   def create
     @booking = Booking.new(booking_params)
