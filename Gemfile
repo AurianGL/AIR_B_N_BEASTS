@@ -17,6 +17,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'carrierwave', '~>1.2'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git'
+gem "simple_calendar", "~> 2.0"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
