@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
+  before_action :set_beast, only: [:new, :show, :update, :edit, :destroy]
+
   def create
-    @beast = Beast.find(params[:beast_id])
     @booking = Booking.new(booking_params)
     @booking.beast = @beast
     if @booking.save
@@ -15,14 +16,27 @@ class BookingsController < ApplicationController
   end
 
   def update
+    if @booking.save(booking_params)
+      redirect_to @beast, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def edit
   end
 
   def show
+    @booking = Booking.new(booking_params)
   end
 
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :beast, :user)
+  end
+
+  def set_beast
+    @beast = Beast.find(params[:beast_id])
   end
 end

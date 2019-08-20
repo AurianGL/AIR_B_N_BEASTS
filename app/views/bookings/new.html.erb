@@ -3,10 +3,10 @@
     <div class="col-md-8">
       <h1>Create a new booking</h1>
 
-      <%= simple_form_for [beast, booking] do |f| %>
+      <%= simple_form_for [@beast, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
-        <%= f.input :beast %>
+        <%= f.hidden_field :beast_id, value: @beast.id %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
