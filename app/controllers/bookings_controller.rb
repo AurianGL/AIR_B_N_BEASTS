@@ -3,10 +3,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     @booking.beast = @beast
     if @booking.save
       redirect_to beast_path(@beast)
     else
+      raise
       render "beasts/show"
     end
   end
