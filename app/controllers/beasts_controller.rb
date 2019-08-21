@@ -1,10 +1,13 @@
 class BeastsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @beasts = Beast.all
   end
 
   def show
     @beast = Beast.find(params[:id])
+    @bookings = @beast.bookings
   end
 
   def create

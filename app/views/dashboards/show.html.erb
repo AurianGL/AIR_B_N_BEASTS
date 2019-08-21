@@ -1,0 +1,62 @@
+<div class="m-3">
+  <h2>
+    <%= current_user.first_name %>
+  </h2>
+</div>
+<div class="d-flex">
+  <div class="m-3">
+    <h3>Your Beasts</h3>
+    <div class="container -fluid d-flex justify-content-start align-items-start m-0 col-12">
+      <% current_user.beasts.each do |beast| %>
+        <div class="container-fluid col-4">
+            <div class="beast-card m-3 d-flex justify-content-start align-items-start" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path beast.photo %>')">
+              <div class="mb-3" >
+                <div class="card-header">
+                  <h4><%= beast.name %></h4>
+                  <p>
+                    <i class="fas fa-dragon"></i>
+                    <%= beast.species %>
+                  </p>
+                </div>
+                <div class="card-body">
+                  <p>
+                    <i class="fas fa-pound-sign"></i>
+                    <%= beast.price %>/day
+                  </p>
+                  <p>
+                    <i class="fas fa-radiation-alt"></i>
+                    <%= beast.dangerosity %>/5
+                  </p>
+                  <p>
+                    <i class="fas fa-map-pin"></i>
+                    <%= beast.address %>
+                  </p>
+                </div>
+                <div class="align-center m-3">
+                  <%= link_to 'More details', beast_path(beast), class: "btn" %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="m-3">
+      <h3> Bookings </h3>
+      <% current_user.bookings.each do |booking| %>
+        <div>
+          <span>
+            <%= link_to booking.beast.name, beast_path(booking.beast), class: "btn" %>
+          </span>
+          <span>
+            <%= booking.start_date %>
+          </span>
+          <span>
+            <%= booking.start_date %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
