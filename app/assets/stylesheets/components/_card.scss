@@ -3,16 +3,12 @@
   width: auto;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
 }
 
 .show-card {
   min-height: 500px;
   width: auto;
-  background-color: white;
   color: $dark-grey;
-  border: 1px solid $dark-grey;
-  border-radius: 20px;
 }
 
 .beast-card-show {
@@ -20,7 +16,6 @@
   width: auto;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
   color: white;
 }
 
@@ -28,7 +23,6 @@
   background-color: $dark-grey;
   padding: 20px;
   margin: 10px;
-  border-radius: 20px;
   color: white;
   justify-content: space-around;
 }
