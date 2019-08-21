@@ -5,6 +5,7 @@ class BeastsController < ApplicationController
 
   def show
     @beast = Beast.find(params[:id])
+    @bookings = @beast.bookings
   end
 
   def create
