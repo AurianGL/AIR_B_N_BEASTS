@@ -41,8 +41,24 @@
         </div>
       </div>
     </div>
-    <div class="mt-15">
-      <h2>Reviews</h2>
-    </div>
+
+
+
+    <% if current_user == @beast.user %>
+      <div class="d-flex">
+        <% @bookings.each do |booking| %>
+          <span><%= booking.user.first_name %></span>
+          <% if booking.validate %>
+            <span> 💚 </span>
+            <% else %>
+            <span><% link_to "🔴", beast_booking_path(@beast) %></span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+
+
   </div>
 </div>
