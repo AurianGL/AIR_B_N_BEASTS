@@ -27,19 +27,37 @@
   </div>
 </div>
 
-
+<div class="container-fluid col-12 d-flex justify-content-center">
     <% if current_user == @beast.user %>
-      <div class="d-flex">
-        <% @bookings.each do |booking| %>
-          <span><%= booking.user.first_name %></span>
-          <% if booking.validate %>
-            <span> 💚 </span>
-            <% else %>
-            <span><% link_to "🔴", beast_booking_path(@beast) %></span>
+      <div class="container m-3 col-6 ">
+        <div class="container-fluid m-3">
+          <h3> Bookings </h3>
+          <% @bookings.each do |booking| %>
+            <div class="booking-card col-8 d-flex align-items-center justify-content-between">
+              <span>
+                <%= booking.user.first_name %>
+              </span>
+              <span>
+                <div>
+                  begin : <%= booking.start_date %>
+                </div>
+                <div>
+                  end : <%= booking.end_date %>
+                </div>
+              </span>
+                <div class="d-flex">
+                  <% if booking.status %>
+                    <span> 💚 </span>
+                    <% else %>
+                    <span> 🔴 </span>
+                  <% end %>
+                </div>
+            </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
     <% end %>
+  </div>
 
 
 

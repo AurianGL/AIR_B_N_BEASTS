@@ -41,11 +41,11 @@
       <% end %>
     </div>
   </div>
-  <div class="col-6 ">
+  <div class="container m-3 col-6 ">
     <div class="container-fluid m-3">
       <h3> Bookings </h3>
       <% current_user.bookings.each do |booking| %>
-        <div class="booking-card col-8 d-flex align-items-center">
+        <div class="booking-card col-8 d-flex align-items-center justify-content-between">
           <span>
             <%= link_to booking.beast.name, beast_path(booking.beast), class: "btn" %>
           </span>
