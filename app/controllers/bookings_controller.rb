@@ -3,18 +3,22 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
     @booking.beast = @beast
+    @booking.user = current_user
     if @booking.save
+      flash[:notice] = 'booking sent!'
       redirect_to beast_path(@beast)
     else
-      raise
-      render "beasts/show"
+      render "bookings/new"
     end
   end
 
   def new
+    if @beast.user == current_user
+      flash[:alert] = 'user cannot be owner'
+    else
     @booking = Booking.new
+    end
   end
 
   def update
