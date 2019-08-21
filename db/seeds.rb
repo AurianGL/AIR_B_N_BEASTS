@@ -27,20 +27,6 @@ puts "10 fake users created ⭐️"
 species = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
 
 
-# species_image = {
-#   "Owl" => image_url('app/assets/images/Owl.jpg'),
-#   "Elf" => image_url('app/assets/images/Elf.png'),
-#   "Basilisk" => image_url('app/assets/images/Basilisk.jpg'),
-#   "Hungarian Horntail" => image_url('app/assets/images/hungarianhorntail.jpg'),
-#   "Fawke" => image_url('app/assets/images/Fawkes.jgg'),
-#   "Dementor" => image_url('app/assets/images/dementor.jpg'),
-#   "Goblin" => image_url('app/assets/images/Goblin.jpg'),
-#   "Troll" => image_url('app/assets/images/Troll.jpg'),
-#   "Cerberus" => image_url('app/assets/images/Cerberus.jpg')
-# }
-
-=======
-
 users = User.all
 
 puts "destroy beasts"
@@ -85,8 +71,8 @@ beasts.each do |beast|
   user_id: user_ids.sample
   )
   Booking.create!(
-  start_date: Date.parse('20191012'),
-  end_date: Date.parse('20191112'),
+  start_date: Date.parse('20201012'),
+  end_date: Date.parse('20201112'),
   status: false,
   beast_id: beast.id,
   user_id: user_ids.sample
