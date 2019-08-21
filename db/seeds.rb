@@ -17,6 +17,19 @@ end
 puts "10 fake users created ⭐️"
 
 species = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
+
+# species_image = {
+#   "Owl" => image_url('app/assets/images/Owl.jpg'),
+#   "Elf" => image_url('app/assets/images/Elf.png'),
+#   "Basilisk" => image_url('app/assets/images/Basilisk.jpg'),
+#   "Hungarian Horntail" => image_url('app/assets/images/hungarianhorntail.jpg'),
+#   "Fawke" => image_url('app/assets/images/Fawkes.jgg'),
+#   "Dementor" => image_url('app/assets/images/dementor.jpg'),
+#   "Goblin" => image_url('app/assets/images/Goblin.jpg'),
+#   "Troll" => image_url('app/assets/images/Troll.jpg'),
+#   "Cerberus" => image_url('app/assets/images/Cerberus.jpg')
+# }
+
 users = User.all
 
 puts "destroy beasts"
@@ -34,7 +47,6 @@ users.each do |user|
       dangerosity: rand(1..5),
       price: rand(1..50),
       species: species.sample,
-      photo: File.open(File.join(Rails.root, "app/assets/images/harry.jpg")),
       user_id: user.id
   )
   end
