@@ -4,13 +4,13 @@
   </h2>
 </div>
 <div class="d-flex">
-  <div class="m-3">
+  <div class="m-3 col-6">
     <h3>Your Beasts</h3>
-    <div class="container -fluid d-flex justify-content-start align-items-start m-0 col-12">
+    <div class="container d-flex justify-content-start align-items-stretch m-0 col-12 flex-column">
       <% current_user.beasts.each do |beast| %>
-        <div class="container-fluid col-4">
-            <div class="beast-card m-3 d-flex justify-content-start align-items-start" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path beast.photo %>')">
-              <div class="mb-3" >
+        <div class="container-fluid col-12">
+            <div class="beast-card-show m-3 d-flex justify-content-start align-items-start" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{beast.species}.jpg" %>')">
+              <div class="container-fluid mb-3 d-flex justify-content-around" >
                 <div class="card-header">
                   <h4><%= beast.name %></h4>
                   <p>
@@ -41,20 +41,29 @@
       <% end %>
     </div>
   </div>
-  <div class="col-6">
-    <div class="m-3">
+  <div class="col-6 ">
+    <div class="container-fluid m-3">
       <h3> Bookings </h3>
       <% current_user.bookings.each do |booking| %>
-        <div>
+        <div class="booking-card col-8 d-flex align-items-center">
           <span>
             <%= link_to booking.beast.name, beast_path(booking.beast), class: "btn" %>
           </span>
           <span>
-            <%= booking.start_date %>
+            <div>
+              begin : <%= booking.start_date %>
+            </div>
+            <div>
+              end : <%= booking.end_date %>
+            </div>
           </span>
-          <span>
-            <%= booking.start_date %>
-          </span>
+            <div class="d-flex">
+              <% if booking.validate %>
+                <span> 💚 </span>
+                <% else %>
+                <span> 🔴 </span>
+              <% end %>
+            </div>
         </div>
       <% end %>
     </div>
