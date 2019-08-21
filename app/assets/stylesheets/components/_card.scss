@@ -5,3 +5,12 @@
   background-position: center;
   border-radius: 20px;
 }
+
+.show-card {
+  min-height: 500px;
+  width: auto;
+  background-color: white;
+  color: $dark-grey;
+  border: 1px solid $dark-grey;
+  border-radius: 20px;
+}
