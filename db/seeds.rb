@@ -17,6 +17,7 @@ end
 puts "10 fake users created ⭐️"
 
 species = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
+
 users = User.all
 
 puts "destroy beasts"
@@ -25,8 +26,10 @@ Beast.destroy_all
 
 puts "Creating fake beasts..."
 
+
+
 users.each do |user|
-  rand(1..2).times do
+  rand(3..6).times do
     Beast.create!(
       name: Faker::Movies::HarryPotter.character,
       description: Faker::Movies::HarryPotter.house,
@@ -56,6 +59,13 @@ beasts.each do |beast|
   start_date: Date.parse('20191012'),
   end_date: Date.parse('20191112'),
   status: true,
+  beast_id: beast.id,
+  user_id: user_ids.sample
+  )
+  Booking.create!(
+  start_date: Date.parse('20191012'),
+  end_date: Date.parse('20191112'),
+  status: false,
   beast_id: beast.id,
   user_id: user_ids.sample
   )
