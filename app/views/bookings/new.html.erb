@@ -3,12 +3,16 @@
     <div class="col-md-8">
       <h1>Create a new booking</h1>
 
-      <%= simple_form_for [@beast, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.hidden_field :beast_id, value: @beast.id %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% if current_user == @beast.user %>
+        <%= link_to 'back to home page', root_path, class: "btn" %>
+      <% else %>
+          <%= simple_form_for [@beast, @booking] do |f| %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <%= f.hidden_field :beast_id, value: @beast.id %>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 .beast-card {
-  min-height: 350px;
+  height: 450px;
   width: auto;
   background-size: cover;
   background-position: center;
@@ -13,4 +13,21 @@
   color: $dark-grey;
   border: 1px solid $dark-grey;
   border-radius: 20px;
+
+.beast-card-show {
+  height: 200px;
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
 }
+
+.booking-card {
+  background-color: $dark-grey;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 20px;
+  color: white;
+  justify-content: space-around;
+}
+
