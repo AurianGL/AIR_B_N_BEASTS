@@ -2,7 +2,15 @@ puts "destroy users"
 
 User.destroy_all
 
-puts "Creating 10 fake users..."
+puts "Creating 11 fake users..."
+
+User.create(
+      first_name: "Harry Potter",
+      last_name: Faker::Movies::HarryPotter.spell,
+      email: Faker::Internet.email,
+      phone_number: Faker::PhoneNumber.phone_number,
+      password: "password",
+    )
 
 10.times do
   User.create(
@@ -41,12 +49,12 @@ Beast.destroy_all
 
 puts "Creating fake beasts..."
 
-
+beasts_names = ["Hedwig", "Fang", "Crookshanks", "Pigwidgeon", "Errol", "Nagini", "The Hungarian Horntail", " Fluffy the Three-Headed Dog ", "Fawkes", "Aragog", "Slytherin's Basilisk "]
 
 users.each do |user|
   rand(3..6).times do
     Beast.create!(
-      name: Faker::Movies::HarryPotter.character,
+      name: beasts_names.sample,
       description: Faker::Movies::HarryPotter.house,
       address: Faker::Movies::HarryPotter.location,
       dangerosity: rand(1..5),
