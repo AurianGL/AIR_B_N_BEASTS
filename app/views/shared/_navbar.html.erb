@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to "https://airbnbeasts.herokuapp.com/", class: "navbar-brand" do %>
     <%= image_tag "https://cdn11.bigcommerce.com/s-sq9zkarfah/images/stencil/1280x1280/products/74277/135809/Harry-Potter-Deathly-Hallows-Logo-Vinyl-Decal-Sticker__40234.1510890355.jpg?c=2?imbypass=on" %>
     <% end %>
 
@@ -15,17 +15,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+         <li class="nav-item ml-auto">
+          <%= link_to "My Bookings", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://lh3.googleusercontent.com/0duXs46FK54NZtOAnXbqv5xcpz0NCf7JE34ITfYZhGS2eiPWd11l9FzaJNEnny1K1Fatz2oE2HENKahpPQ=rw", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "book a beast", "#", class: "dropdown-item" %>
-            <%= link_to "add a beast", "#", class: "dropdown-item" %>
+            <%= link_to "Book a beast", beasts_path, class: "dropdown-item" %>
+            <%= link_to "Rent out a beast", new_beast_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
