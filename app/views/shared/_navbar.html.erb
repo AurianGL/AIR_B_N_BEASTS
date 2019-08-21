@@ -16,7 +16,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
          <li class="nav-item ml-auto">
-          <%= link_to "My Bookings", "#", class: "nav-link" %>
+          <%= link_to "My Bookings", dashboard_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://lh3.googleusercontent.com/0duXs46FK54NZtOAnXbqv5xcpz0NCf7JE34ITfYZhGS2eiPWd11l9FzaJNEnny1K1Fatz2oE2HENKahpPQ=rw", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
