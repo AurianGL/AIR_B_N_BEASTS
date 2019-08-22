@@ -7,7 +7,7 @@ class Beast < ApplicationRecord
 
   has_many :bookings
 
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, through: :bookings, dependent: :destroy
 
   has_many :users, through: :bookings
 
