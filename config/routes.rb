@@ -1,4 +1,4 @@
-  Rails.application.routes.draw do
+Rails.application.routes.draw do
 
   # get 'dashboards/show'
   devise_for :users
@@ -7,11 +7,9 @@
   root to: 'pages#home'
   get "/dashboard", to: "dashboards#show"
 
-   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :bookings, except: [:create, :index, :new, :update, :show] do
-    resources :reviews, only: [:create, :new]
-  end
-  resources :beasts, only: [:create, :index, :new, :update, :show] do
-    resources :bookings, only: [:create, :new, :update, :show]
+  resources :beasts, only: [:create, :index, :new, :update, :show, :destroy] do
+    resources :bookings, except: [:create, :index, :new, :update, :show] do
+      resources :reviews, only: [:create, :new]
+    end
   end
 end

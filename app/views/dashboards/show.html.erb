@@ -35,6 +35,11 @@
                 <div class="align-center m-3">
                   <%= link_to 'More details', beast_path(beast), class: "btn" %>
                 </div>
+                <div class="align-center m-3">
+                  <%= link_to "Delete", beast_path(beast),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }, class: "btn" %>
+                </div>
               </div>
             </div>
           </div>
