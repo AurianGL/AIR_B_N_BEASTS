@@ -2,7 +2,12 @@ class BeastsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @beasts = Beast.all
+    if params[:query].present?
+      @beasts = Beast.search(params[:query])
+    else
+      @beasts = Beast.all
+    end
+    @beasts = @beasts.order("#{params[:sorting]} ASC") if params[:sorting].present?
   end
 
   def show
