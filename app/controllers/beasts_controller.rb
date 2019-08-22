@@ -1,5 +1,5 @@
 class BeastsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @beasts = Beast.all
@@ -11,11 +11,11 @@ class BeastsController < ApplicationController
   end
 
   def create
-    @beast = Beast.new(beast_params)
+    @beast = current_user.beasts.create!(beast_params)
+    # @beast = Beast.new(beast_params)
     if @beast.save
       redirect_to beast_path(@beast)
     else
-      raise
       render 'new'
     end
   end
