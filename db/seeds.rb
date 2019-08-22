@@ -44,7 +44,7 @@ users.each do |user|
       description: Faker::Movies::HarryPotter.house,
       address: Faker::Movies::HarryPotter.location,
       dangerosity: rand(1..5),
-      price: rand(1..50),
+      price: rand(15..150),
       species: species.sample,
       user_id: user.id
   )
