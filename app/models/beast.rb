@@ -6,7 +6,6 @@ class Beast < ApplicationRecord
   PRICES = (15..150)
 
   has_many :bookings
-<<<<<<< HEAD
   has_many :reviews, through: :bookings
   has_many :users, through: :bookings
 
@@ -16,7 +15,6 @@ class Beast < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
-=======
   has_many :users, through: :bookings
   belongs_to :user
 
@@ -26,5 +24,4 @@ class Beast < ApplicationRecord
   validates :dangerosity, presence: true
   validates :price, presence: true
   validates :species, presence: true
->>>>>>> 4b038bbdc9c5a625dfc5ea68960a743fbe7d6f26
 end
