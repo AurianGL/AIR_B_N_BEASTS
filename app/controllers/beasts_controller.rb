@@ -14,6 +14,7 @@ class BeastsController < ApplicationController
     @beast = Beast.find(params[:id])
     @bookings = @beast.bookings
     @booking = Booking.where(user: current_user, beast: @beast).first
+    @reviews = @beast.reviews
   end
 
   def create
