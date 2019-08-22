@@ -1,0 +1,13 @@
+.banner {
+  background-image: image-url("banner.jpg");
+  height: 75vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  margin: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
