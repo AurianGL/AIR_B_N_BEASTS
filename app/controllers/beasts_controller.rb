@@ -13,6 +13,7 @@ class BeastsController < ApplicationController
   def show
     @beast = Beast.find(params[:id])
     @bookings = @beast.bookings
+    @booking = Booking.where(user: current_user, beast: @beast).first
   end
 
   def create

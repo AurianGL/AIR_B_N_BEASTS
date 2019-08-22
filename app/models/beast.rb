@@ -6,7 +6,9 @@ class Beast < ApplicationRecord
   PRICES = (15..150)
 
   has_many :bookings
-  has_many :reviews, through: :bookings
+
+  has_many :reviews, dependent: :destroy
+
   has_many :users, through: :bookings
 
   include PgSearch::Model

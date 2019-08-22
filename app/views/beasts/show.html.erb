@@ -12,8 +12,11 @@
             <p><i class="fas fa-radiation-alt"></i> <%= @beast.dangerosity %>/5</p>
             <p><i class="fas fa-map-pin"></i> <%= @beast.address %></p>
           </div>
-          <div class="mb-3 col-10">
+          <div class="mb-3 col-30">
             <%= link_to '📆 Check availabilities', new_beast_booking_path(@beast), class: "btn" %>
+          </div>
+          <div class="mb-3 col-30">
+            <%= link_to '📆 Write reviews', new_booking_review_path(@booking), class: "btn" %>
           </div>
       </div>
 
