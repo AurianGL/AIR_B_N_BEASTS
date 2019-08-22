@@ -2,12 +2,13 @@ class BeastsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      @beasts = Beast.search(params[:query])
-    else
-      @beasts = Beast.all
-    end
+    @beasts = Beast.all
+
     @beasts = @beasts.order("#{params[:sorting]} ASC") if params[:sorting].present?
+
+    if params[:query].present?
+      @beasts = @beasts.search(params[:query])
+    end
   end
 
   def show
