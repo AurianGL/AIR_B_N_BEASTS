@@ -1,18 +1,35 @@
 .beast-card {
-  height: 450px;
+  position: relative;
+  height: 300px;
   width: auto;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
+  transition: display 0.3s ease;
+}
+
+.card-body {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(199,255,227,0.835171568627451) 0%, rgba(2,0,36,0.7791491596638656) 36%, rgba(22,2,14,0.8099614845938375) 61%, rgba(134,36,36,0.8211659663865546) 100%);;
+    display: none;
+    height: 100%;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.beast-card:hover{
+
+  h4, #species {
+    display: none;
+  }
+  .card-body {
+    display: block;
+  }
 }
 
 .show-card {
   min-height: 500px;
   width: auto;
-  background-color: white;
   color: $dark-grey;
-  border: 1px solid $dark-grey;
-  border-radius: 20px;
 }
 
 .beast-card-show {
@@ -20,7 +37,6 @@
   width: auto;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
   color: white;
 }
 
@@ -28,7 +44,6 @@
   background-color: $dark-grey;
   padding: 20px;
   margin: 10px;
-  border-radius: 20px;
   color: white;
   justify-content: space-around;
 }

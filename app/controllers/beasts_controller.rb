@@ -15,6 +15,7 @@ class BeastsController < ApplicationController
     if @beast.save
       redirect_to beast_path(@beast)
     else
+      raise
       render 'new'
     end
   end
@@ -26,6 +27,6 @@ class BeastsController < ApplicationController
   private
 
   def beast_params
-    params.require(:beast).permit(:name, :description, :address, :dangerosity, :price, :species)
+    params.require(:beast).permit(:name, :description, :address, :dangerosity, :price, :species, :photo)
   end
 end

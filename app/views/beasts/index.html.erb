@@ -1,35 +1,42 @@
-<div class="container d-flex flex-wrap col-10">
+
+<div class="container-fluid d-flex justify-content-center mt-5">
+  <h3>Choose your BEAST</h3>
+</div>
+<div class="container-fluid d-flex flex-wrap justify-content-center align-items-center col-10 mt-5">
 
   <% @beasts.each do |beast| %>
-      <div class="container-fluid col-4">
-        <div class="beast-card m-3 d-flex justify-content-center align-items-center" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{beast.species}.jpg" %>')">
-          <div class="mb-3" >
-            <div class="card-header">
+      <div class="container-fluid col-4 mb-5">
+        <div class="beast-card d-flex justify-content-center align-items-center" style="background-image: linear-gradient(180deg, rgba(212,255,199,0.3309698879551821) 0%, rgba(2,0,36,0.7175245098039216) 49%, rgba(134,36,36,0.15449929971988796) 100%), url('<%= image_path "#{beast.species}.jpg" %>')">
+
+            <div class="card-title text-center">
               <h4><%= beast.name %></h4>
-              <p>
+              <p id="species">
                 <i class="fas fa-dragon"></i>
                 <%= beast.species %>
               </p>
             </div>
-            <div class="card-body">
-              <p>
-                <i class="fas fa-pound-sign"></i>
-                <%= beast.price %>/day
-              </p>
-              <p>
-                <i class="fas fa-radiation-alt"></i>
-                <%= beast.dangerosity %>/5
-              </p>
-              <p>
-                <i class="fas fa-map-pin"></i>
-                <%= beast.address %>
-              </p>
+            <div class="mb-5 card-body" >
+              <div class="m-3">
+                <p>
+                  <i class="fas fa-pound-sign"></i>
+                  <%= beast.price %>/day
+                </p>
+
+                <p>
+                  <i class="fas fa-radiation-alt"></i>
+                  <%= beast.dangerosity %>/5
+                </p>
+                <p>
+                  <i class="fas fa-map-pin"></i>
+                  <%= beast.address %>
+                </p>
+              </div>
+              <div class="container-fluid d-flex justify-content-center">
+                <button><%= link_to 'More details', beast_path(beast) %></button>
+              </div>
             </div>
-            <div class="align-center">
-              <%= link_to 'More details', beast_path(beast), class: "btn" %>
-            </div>
-          </div>
         </div>
+
       </div>
   <% end %>
 </div>
