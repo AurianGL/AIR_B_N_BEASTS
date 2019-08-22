@@ -7,3 +7,33 @@ button, .boutton {
   margin-top: 10px;
 }
 
+.btn {
+  color: white;
+  border: white solid 1px;
+  border-radius: 4px;
+  background-color: $dark-grey;
+  margin-top: 12px;
+}
+
+.btn:hover {
+  color: $dark-grey;
+  border: white solid 1px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.btn-search {
+  padding: 8px 24px;
+  color: white;
+  border: white solid 1px;
+  border-radius: 4px;
+  background: $dark-grey;
+  transition: background 0.3s ease;
+}
+
+.btn-search:hover {
+  color: $dark-grey;
+  border: white solid 1px;
+  border-radius: 4px;
+  background-color: white;
+}
