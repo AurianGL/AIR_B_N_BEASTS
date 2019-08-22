@@ -1,9 +1,29 @@
 class Beast < ApplicationRecord
-  SPECIES = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
   mount_uploader :photo, PhotoUploader
-  validates :name, :description, :address, :dangerosity, :price, :species, presence: true
-  belongs_to :user
+
+  SPECIES = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
+  DANGEROSITIES = (1..5)
+  PRICES = (15..150)
+
   has_many :bookings
+
   has_many :reviews, dependent: :destroy
+
   has_many :users, through: :bookings
+
+  include PgSearch::Model
+  pg_search_scope :search,
+                  against: [:name, :species, :price, :dangerosity],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+  has_many :users, through: :bookings
+  belongs_to :user
+
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :address, presence: true
+  validates :dangerosity, presence: true
+  validates :price, presence: true
+  validates :species, presence: true
 end
