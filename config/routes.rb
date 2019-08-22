@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboards#show"
 
   resources :beasts, only: [:create, :index, :new, :update, :show, :destroy] do
-    resources :bookings, except: [:create, :index, :new, :update, :show] do
+    resources :bookings, only: [:create, :index, :new, :update, :show, :destroy] do
       resources :reviews, only: [:create, :new]
     end
   end
