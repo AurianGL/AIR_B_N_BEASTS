@@ -7,6 +7,7 @@ class BeastsController < ApplicationController
     else
       @beasts = Beast.all
     end
+    @beasts = @beasts.order("#{params[:sorting]} ASC") if params[:sorting].present?
   end
 
   def show

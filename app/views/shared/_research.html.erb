@@ -1,5 +1,16 @@
 <!-- # to do create research method in beast controller -->
-<%= form_tag beasts_path, method: :get do %>
-    <%= text_field_tag :query, nil, placeholder: "Search ...", class: "form-control" %>
-    <%= submit_tag "filter", class: "boutton" %>
+<div class="research">
+  <%= form_tag beasts_path, method: :get do %>
+      <%= text_field_tag :query, nil, placeholder: "Search ...", class: "form-control" %>
+      <div class="p-3">
+        <span> sort by: </span>
+        <%= radio_button_tag :sorting, "price" %>
+        <span><%= label_tag(:price, "price") %></span>
+        <%= radio_button_tag :sorting, "dangerosity" %>
+        <span><%= label_tag(:dangerosity, "dangerosity") %></span>
+      </div>
+      <div>
+        <%= submit_tag "filter", class: "boutton" %>
+      </div>
   <% end %>
+</div>
