@@ -6,4 +6,11 @@ class Beast < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   has_many :users, through: :bookings
+
+  include PgSearch::Model
+  pg_search_scope :search,
+                  against: [:name, :species, :price, :dangerosity],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
