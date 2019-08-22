@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Validate review</h1>
+        <%= @review.beast %>
+        <%= @review.content %>
+        <%= @review.stars %>
+        <%= @review.user %>
+
+      <%= simple_form_for [@beast, @review] do |f| %>
+        <%= f.input :validate, as: :boolean %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
