@@ -4,6 +4,6 @@ class Beast < ApplicationRecord
   validates :name, :description, :address, :dangerosity, :price, :species, presence: true
   belongs_to :user
   has_many :bookings
-  # has_many :reviews, through: :bookings
+  has_many :reviews, through: :bookings
   has_many :users, through: :bookings
 end
