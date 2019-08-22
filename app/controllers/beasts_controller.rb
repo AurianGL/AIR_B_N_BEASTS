@@ -29,6 +29,12 @@ class BeastsController < ApplicationController
     @beast = Beast.new
   end
 
+  def destroy
+    @beast = Beast.find(params[:id])
+    @beast.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def beast_params
