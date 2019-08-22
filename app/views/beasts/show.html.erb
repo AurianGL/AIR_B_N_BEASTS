@@ -13,11 +13,11 @@
             <p><i class="fas fa-map-pin"></i> <%= @beast.address %></p>
           </div>
           <div class="mb-3 col-30">
-            <%= link_to '📆 Check availabilities', new_beast_booking_path(@beast), class: "btn" %>
+            <%= link_to '📆 Check availabilities', beast_path, class: "btn" %>
           </div>
           <div class="mb-3 col-30">
             <% if @booking %>
-              <%= link_to '📆 Write reviews', new_booking_review_path(@booking), class: "btn" %>
+              <%= link_to '🖋 Write reviews', new_booking_review_path(@booking), class: "btn" %>
             <% end %>
           </div>
           <div class="mb-3 col-30">
