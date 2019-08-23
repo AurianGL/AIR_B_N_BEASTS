@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     if @beast.user == current_user
       flash[:alert] = 'user cannot be owner'
     else
-    @booking = Booking.new
+      @booking = Booking.new
     end
   end
 
@@ -34,6 +34,12 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.new(booking_params)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to dashboard_path
   end
 
   private
