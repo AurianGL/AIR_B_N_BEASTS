@@ -46,7 +46,8 @@ users.each do |user|
       dangerosity: rand(1..5),
       price: rand(15..150),
       species: species.sample,
-      user_id: user.id
+      user_id: user.id,
+      promo: 50,
   )
   end
 end

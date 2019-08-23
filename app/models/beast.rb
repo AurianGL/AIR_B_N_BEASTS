@@ -11,14 +11,15 @@ class Beast < ApplicationRecord
 
   has_many :users, through: :bookings
 
+  belongs_to :user
+
+
   include PgSearch::Model
   pg_search_scope :search,
                   against: [:name, :species, :price, :dangerosity],
                   using: {
                     tsearch: { prefix: true }
                   }
-  has_many :users, through: :bookings
-  belongs_to :user
 
   validates :name, presence: true
   validates :description, presence: true
