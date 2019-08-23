@@ -8,7 +8,7 @@
             <h2><%= @beast.name %></h2>
             <p><i class="fas fa-dragon"></i> <%= @beast.species %></p>
             <p>
-              <% if current_user = @beast.user %>
+              <% if current_user == @beast.user %>
                 <strong> This is YOUR beast</strong>
               <% else %>
                 <strong>Owner is <%= @beast.user.first_name || @beast.user.email %></strong>

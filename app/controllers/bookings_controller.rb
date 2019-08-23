@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
 
-    if @booking.save(booking_params)
+    if @booking.update(booking_params)
       redirect_to @beast, notice: 'Booking was successfully updated.'
     else
       render :edit
