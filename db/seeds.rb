@@ -2,7 +2,7 @@ puts "destroy users"
 
 User.destroy_all
 
-puts "Creating 11 fake users..."
+puts "Creating 3 fake users..."
 
 User.create(
       first_name: "Harry Potter",
@@ -12,17 +12,24 @@ User.create(
       password: "password",
     )
 
-10.times do
-  User.create(
-      first_name: Faker::Movies::HarryPotter.character,
+User.create(
+      first_name: "Hermione Granger",
       last_name: Faker::Movies::HarryPotter.spell,
       email: Faker::Internet.email,
       phone_number: Faker::PhoneNumber.phone_number,
       password: "password",
     )
-end
 
-puts "10 fake users created ⭐️"
+User.create(
+      first_name: "Ron Weasley",
+      last_name: Faker::Movies::HarryPotter.spell,
+      email: Faker::Internet.email,
+      phone_number: Faker::PhoneNumber.phone_number,
+      password: "password",
+    )
+
+
+puts "3 fake users created ⭐️"
 
 species = ["Owl", "Elf", "Basilisk", "Hungarian Horntail", "Fawke", "Dementor", "Goblin", "Troll", "Cerberus"]
 
@@ -33,12 +40,66 @@ puts "destroy beasts"
 
 Beast.destroy_all
 
+puts "Creating 4 dragons..."
+
+
+
+    Beast.create!(
+      name: "Ommadon",
+      description: Faker::Movies::HarryPotter.house,
+      address: Faker::Movies::HarryPotter.location,
+      dangerosity: rand(1..5),
+      price: rand(15..150),
+      species: "Aragh",
+      user_id: User.first.id,
+      promo: 50,
+  )
+
+     Beast.create!(
+      name: "Carolinus",
+      description: Faker::Movies::HarryPotter.house,
+      address: Faker::Movies::HarryPotter.location,
+      dangerosity: rand(1..5),
+      price: rand(15..150),
+      species: "Smrgol",
+      user_id: User.first.id,
+      promo: 50,
+  )
+
+      Beast.create!(
+      name: "Orrin Neville-Smythe",
+      description: Faker::Movies::HarryPotter.house,
+      address: Faker::Movies::HarryPotter.location,
+      dangerosity: rand(1..5),
+      price: rand(15..150),
+      species: "Bryagh",
+      user_id: User.last.id,
+      promo: 50,
+  )
+
+       Beast.create!(
+      name: "Solarius",
+      description: Faker::Movies::HarryPotter.house,
+      address: Faker::Movies::HarryPotter.location,
+      dangerosity: rand(1..5),
+      price: rand(15..150),
+      species: "Gorbash",
+      user_id: User.last.id,
+      promo: 50,
+  )
+
+
+
+
+
 puts "Creating fake beasts..."
 
-beasts_names = ["Hedwig", "Fang", "Crookshanks", "Pigwidgeon", "Errol", "Nagini", "The Hungarian Horntail", " Fluffy the Three-Headed Dog ", "Fawkes", "Aragog", "Slytherin's Basilisk "]
+beasts_names = ["Hedwig", "Fang", "Crookshanks", "Pigwidgeon", "Errol", "Nagini", " Fluffy the Three-Headed Dog ", "Aragog", "Slytherin"]
+
+
 
 users.each do |user|
-  rand(3..6).times do
+  rand(1..3).times do
     Beast.create!(
       name: beasts_names.sample,
       description: Faker::Movies::HarryPotter.house,
@@ -47,7 +108,7 @@ users.each do |user|
       price: rand(15..150),
       species: species.sample,
       user_id: user.id,
-      promo: 50,
+
   )
   end
 end
