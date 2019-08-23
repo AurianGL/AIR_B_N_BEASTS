@@ -1,10 +1,15 @@
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap " style="padding-top: 100px;">
 
-  <div class="container d-flex flex-wrap">
-    <div class="container-fluid">
-      <div class="m-3 d-flex justify-content-center align-items-center">
-        <div class="show-card mb-3 justify-content-center align-items-center col-4" >
-          <div class="border-bottom dark mt-5">
+  <div class="container d-flex flex-wrap col-6 justify-content-center align-items-top">
+
+        <div class="container col-8">
+            <div class="beast-image" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{@beast.species}.jpg" %>')">
+            </div>
+        </div>
+
+
+        <div class="show-card mb-3 justify-content-center col-4" >
+          <div class="border-bottom dark">
             <h2><%= @beast.name %></h2>
             <p><i class="fas fa-dragon"></i> <%= @beast.species %></p>
             <p>
@@ -49,25 +54,16 @@
             </div>
         </div>
 
-        <div class="container d-flex flex-wrap col-4">
-          <div class="container-fluid">
-            <div class="beast-card m-3 d-flex" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{@beast.species}.jpg" %>')">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <div class="container-fluid  d-flex justify-content-center col-4">
+  <div class="container-fluid  d-flex justify-content-center col-6">
       <% if current_user == @beast.user %>
-        <div class="container m-3  ">
-          <div class="container ">
-            <h3> Bookings </h3>
+        <div class="container  ">
+            <h3> next Bookings </h3>
             <% @bookings.each do |booking| %>
               <div class="booking-card d-flex align-items-center justify-content-between">
-                <span>
-                  <%= booking.user.first_name %>
+                <span class="">
+                  <h3><%= booking.user.first_name %></h3>
                 </span>
                 <span>
                   <div>
@@ -86,12 +82,17 @@
                             <%= f.input :status, as: :hidden, input_html: {value: true}%>
                             <%= f.submit "validate", class: "boutton" %>
                         </span>
+                        <span class="boutton">
+                          <%= link_to 'Delete',
+                                beast_booking_path(@beast, booking),
+                                  method: :delete,
+                                    data: { confirm: 'Are you sure?' } %>
+                        </span>
                       <% end %>
                     <% end %>
                   </div>
               </div>
             <% end %>
-          </div>
         </div>
       <% end %>
     </div>

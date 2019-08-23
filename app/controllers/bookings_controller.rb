@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_beast, only: [:new, :show, :update, :edit, :destroy, :create]
+  before_action :set_beast, only: [:new, :show, :update, :edit, :create, :destroy]
 
   def create
     @booking = Booking.new(booking_params)
@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to dashboard_path
+    redirect_to beast_path(@beast)
   end
 
   private
