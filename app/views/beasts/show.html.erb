@@ -1,4 +1,6 @@
+
 <div class="d-flex flex-wrap " style="padding-top: 100px;">
+
 
   <div class="container d-flex flex-wrap col-6 justify-content-center align-items-top">
 
@@ -12,6 +14,7 @@
           <div class="border-bottom dark">
             <h2><%= @beast.name %></h2>
             <p><i class="fas fa-dragon"></i> <%= @beast.species %></p>
+
             <p>
               <% if current_user == @beast.user %>
                 <strong> This is YOUR beast</strong>
