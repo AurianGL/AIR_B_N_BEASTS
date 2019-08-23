@@ -22,6 +22,8 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+
     if @booking.save(booking_params)
       redirect_to @beast, notice: 'Booking was successfully updated.'
     else
@@ -30,8 +32,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.new(booking_params)
-    @beast = @booking.beast
+
   end
 
   def show
@@ -47,11 +48,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :beast, :user)
+    params.require(:booking).permit(:start_date, :end_date, :beast, :user, :status)
   end
 
   def set_beast
-    @beast = @booking.beast
-    # @beast = Beast.find(params[:booking_id])
+    @beast = Beast.find(params[:beast_id])
   end
 end
