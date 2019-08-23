@@ -1,0 +1,26 @@
+.tabs {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+}
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  border: none;
+  padding: 8px;
+  margin: 8px 16px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid $dark-grey;
+}

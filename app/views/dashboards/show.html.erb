@@ -1,76 +1,58 @@
-<div class="m-3">
-  <h2>
-    <%= current_user.first_name %>
-  </h2>
+<div class="container-fluid d-flex justify-content mt-5">
 </div>
-<div class="d-flex">
-  <div class="m-3 col-6">
-    <h3>Your Beasts</h3>
-    <div class="container d-flex justify-content-start align-items-stretch m-0 col-12 flex-column">
-      <% current_user.beasts.each do |beast| %>
-        <div class="container-fluid col-12">
-            <div class="beast-card-show m-3 d-flex justify-content-start align-items-start" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{beast.species}.jpg" %>')">
-              <div class="container-fluid mb-3 d-flex justify-content-around" >
-                <div class="card-header">
-                  <h4><%= beast.name %></h4>
-                  <p>
-                    <i class="fas fa-dragon"></i>
-                    <%= beast.species %>
-                  </p>
+
+  <div class="d-flex">
+    <div class="m-3 col-6">
+      <div class="container d-flex justify-content-start align-items-stretch m-0 col-12 flex-column">
+          <ul class="nav nav-tabs list-inline tabs-underlined" id="myTab" role="tablist">
+            <li class="nav-item"><a href="#mybeasts" id="mybeasts-tab" data-toggle="tab" class="nav-link tab-underlined active">My Beasts</a></li>
+            <li class="nav-item"><a href="#requests" id="requests-tab" data-toggle="tab" class="nav-link tab-underlined">My requests</a></li>
+          </ul>
+
+        <div class="ml-3">
+          <div class="tab-content" id="myTabContent">
+
+              <div class="tab-pane fade show active" id="mybeasts" role="tabpanel" aria-labelledby="mybeasts-tab">
+                <h2 class="mt-5" id="mybeasts">My Beasts</h2>
+                <% current_user.beasts.each do |beast| %>
+                <div class="card-product mt-3">
+                  <%= image_tag "#{beast.species}.jpg"%>
+                  <div class="card-product-infos">
+                    <h2><%= beast.name %></h2>
+                    <p><%= beast.description %></p>
+                    <p><i class="fas fa-pound-sign"></i> You rent it for <strong><%= beast.price %>/day</strong></p>
+                    <p><i class="fas fa-radiation-alt"></i> Evaluated menace <%= beast.dangerosity %>/5</p>
+                    <p><i class="fas fa-map-pin"></i> Lives in <strong><%= beast.address %></strong></p>
+                    <%= link_to 'View its bookings', beast_path(beast), class: "btn" %>
+                    <%= link_to "Kill beast", beast_path(beast),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, class: "btn" %>
+                  </div>
                 </div>
-                <div class="card-body">
-                  <p>
-                    <i class="fas fa-pound-sign"></i>
-                    <%= beast.price %>/day
-                  </p>
-                  <p>
-                    <i class="fas fa-radiation-alt"></i>
-                    <%= beast.dangerosity %>/5
-                  </p>
-                  <p>
-                    <i class="fas fa-map-pin"></i>
-                    <%= beast.address %>
-                  </p>
-                </div>
-                <div class="align-center m-3">
-                  <%= link_to 'More details', beast_path(beast), class: "btn" %>
-                </div>
-                <div class="align-center m-3">
-                  <%= link_to "Delete", beast_path(beast),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }, class: "btn" %>
-                </div>
+              <% end %>
               </div>
+
+            <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+
+            <h2 class="mt-5" id="requests">My Requests</h2>
+            <% current_user.bookings.each do |booking| %>
+              <div class="card-product mt-3">
+                <%= image_tag "#{booking.beast.species}.jpg"%>
+                <div class="card-product-infos">
+                  <h2><%= link_to booking.beast.name, beast_path(booking.beast) %></h2>
+                  <p> From <strong><%= booking.start_date %></strong> Until <strong><%= booking.end_date %></strong></p>
+                  <p> <strong>Booking status</strong> <% if booking.status %>
+                    💚
+                    <% else %>
+                    🔴
+                    <% end %></p>
+                </div>
+            </div>
+            <% end %>
+
             </div>
           </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="container m-3 col-6 ">
-    <div class="container-fluid m-3">
-      <h3> Bookings </h3>
-      <% current_user.bookings.each do |booking| %>
-        <div class="booking-card col-8 d-flex align-items-center justify-content-between">
-          <span>
-            <%= link_to booking.beast.name, beast_path(booking.beast), class: "btn" %>
-          </span>
-          <span>
-            <div>
-              begin : <%= booking.start_date %>
-            </div>
-            <div>
-              end : <%= booking.end_date %>
-            </div>
-          </span>
-            <div class="d-flex">
-              <% if booking.status %>
-                <span> 💚 </span>
-                <% else %>
-                <span> 🔴 </span>
-              <% end %>
-            </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
