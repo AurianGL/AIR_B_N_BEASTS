@@ -3,11 +3,18 @@
   height: 75vh;
   width: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   color: white;
   margin: 0px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.promo {
+  position: absolute;
+  right: 300px;
+  top: 300px;
 }
