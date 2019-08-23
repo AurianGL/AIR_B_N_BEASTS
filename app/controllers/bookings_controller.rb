@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     if @beast.user == current_user
       flash[:alert] = 'user cannot be owner'
     else
-    @booking = Booking.new
+      @booking = Booking.new
     end
   end
 
