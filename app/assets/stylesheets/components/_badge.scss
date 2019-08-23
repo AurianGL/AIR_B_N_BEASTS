@@ -1,6 +1,18 @@
-.promo {
-  height: 30px;
-  width: 30px;
+.minus {
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background-color: #f2ff3f;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+
+  h3 {
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
 }

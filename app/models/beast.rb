@@ -5,7 +5,7 @@ class Beast < ApplicationRecord
   DANGEROSITIES = (1..5)
   PRICES = (15..150)
 
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   has_many :reviews, through: :bookings, dependent: :destroy
 
