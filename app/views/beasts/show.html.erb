@@ -47,11 +47,16 @@
                 <%= link_to '🖋 Write reviews', new_booking_review_path(@booking), class: "btn" %>
               <% end %>
             </div>
-            <div class="mb-3 ">
+            <div class="review-yo mb-3 mt-3 pl-3">
+              <h3>Reviews</h3>
               <% if @reviews.any? %>
                 <% @reviews.each do |review| %>
-                <span class="d-block p-2 bg-primary text-white"><i class="fas fa-star"></i><p><%= review.stars %></p></span>
-                <span class="d-block p-2 bg-primary text-white"><p><%= review.content %></p></span>
+                <p class="d-block p-2">
+                  <% review.stars.times do %>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                  </p>
+                <p class="d-block p-2"><%= review.content %></p>
                   <% end %>
               <% end %>
             </div>
