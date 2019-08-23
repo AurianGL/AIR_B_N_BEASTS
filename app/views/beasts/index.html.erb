@@ -5,9 +5,9 @@
 <div class="banner">
   <div class="container search-form-control">
   <%= render 'shared/research' %>
-  <div class="promo">
-    <%= render 'shared/valentin' %>
-  </div>
+    <div class="promo">
+      <%= render 'shared/valentin' %>
+    </div>
   </div>
 </div>
 
@@ -31,7 +31,11 @@
               <div class="m-3">
                 <div class="mb-2">
                   <i class="fas fa-pound-sign"></i>
-                  <%= beast.price %>/day
+                  <% if beast.promo %>
+                    <%= beast.price * beast.promo / 100 %>/day
+                  <% else %>
+                    <%=  beast.price %>
+                  <% end %>
                 </div>
 
                 <div class="mb-2">

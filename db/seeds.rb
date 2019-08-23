@@ -56,6 +56,7 @@ puts "fake beasts created 🐲"
 
 Booking.destroy_all
 
+
 puts "Creating fake bookings..."
 
 beasts = Beast.all

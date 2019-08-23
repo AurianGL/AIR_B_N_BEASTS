@@ -30,6 +30,8 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.new(booking_params)
+    @beast = @booking.beast
   end
 
   def show
@@ -49,6 +51,7 @@ class BookingsController < ApplicationController
   end
 
   def set_beast
-    @beast = Beast.find(params[:beast_id])
+    @beast = @booking.beast
+    # @beast = Beast.find(params[:booking_id])
   end
 end

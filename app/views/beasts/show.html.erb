@@ -27,50 +27,61 @@
               <span class="d-block p-2 bg-primary text-white"><p><%= review.content %></p></span>
                 <% end %>
             <% end %>
-          </div>
-      </div>
 
-      <div class="container d-flex flex-wrap col-12">
-        <div class="container-fluid">
-          <div class="beast-card m-3 d-flex" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{@beast.species}.jpg" %>')">
+<div class="d-flex flex-wrap">
+
+  <div class="container d-flex flex-wrap">
+    <div class="container-fluid col-4">
+      <div class="m-3 d-flex justify-content-center align-items-center">
+        <div class="show-card mb-3 col-10 justify-content-center align-items-center" >
+          <div class="border-bottom dark mt-5">
+            <h2><%= @beast.name %></h2>
+            <p><i class="fas fa-dragon"></i> <%= @beast.species %></p>
+            <p><strong>Owner is <%= @beast.user.first_name || @beast.user.email %></strong></p>
+
+
+        <div class="container d-flex flex-wrap col-12">
+          <div class="container-fluid">
+            <div class="beast-card m-3 d-flex" style="background-image: linear-gradient(180deg, rgba(199,255,244,0.16541353383458646) 0%, rgba(2,0,36,0.5326505602240896) 49%, rgba(108,16,104,0.15449929971988796) 100%), url('<%= image_path "#{@beast.species}.jpg" %>')">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container-fluid col-12 d-flex justify-content-center">
-    <% if current_user == @beast.user %>
-      <div class="container m-3 col-6 ">
-        <div class="container-fluid m-3">
-          <h3> Bookings </h3>
-          <% @bookings.each do |booking| %>
-            <div class="booking-card col-8 d-flex align-items-center justify-content-between">
-              <span>
-                <%= booking.user.first_name %>
-              </span>
-              <span>
-                <div>
-                  begin : <%= booking.start_date %>
-                </div>
-                <div>
-                  end : <%= booking.end_date %>
-                </div>
-              </span>
-                <div class="d-flex">
-                  <% if booking.status %>
-                    <span> 🐲 </span>
-                    <% else %>
-                    <span> 🧨 </span>
-                  <% end %>
-                </div>
-            </div>
-          <% end %>
+  <div class="container-fluid col-12 d-flex justify-content-center">
+      <% if current_user == @beast.user %>
+        <div class="container m-3 col-6 ">
+          <div class="container-fluid m-3">
+            <h3> Bookings </h3>
+            <% @bookings.each do |booking| %>
+              <div class="booking-card col-8 d-flex align-items-center justify-content-between">
+                <span>
+                  <%= booking.user.first_name %>
+                </span>
+                <span>
+                  <div>
+                    begin : <%= booking.start_date %>
+                  </div>
+                  <div>
+                    end : <%= booking.end_date %>
+                  </div>
+                </span>
+                  <div class="d-flex">
+                    <% if booking.status %>
+                      <span> 🐲 </span>
+                      <% else %>
+                      <span> 🧨 </span>
+                    <% end %>
+                  </div>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+</div>
 
 
 
