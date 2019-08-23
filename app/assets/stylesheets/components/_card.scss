@@ -47,8 +47,7 @@
 }
 
 .show-card {
-  min-height: 500px;
-  width: auto;
+  // min-height: 500px;
   color: $dark-grey;
 }
 
@@ -61,11 +60,21 @@
 }
 
 .booking-card {
-  background-color: $dark-grey;
+  background-color: white;
   padding: 20px;
   margin: 10px;
-  color: white;
+  color: black;
   justify-content: space-around;
+}
+
+.beast-image {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position:
+   center;
+  border-radius: 50%;
 }
 
 .card-product {
